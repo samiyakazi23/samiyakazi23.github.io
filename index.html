@@ -122,7 +122,7 @@ section{border-top:1px solid var(--line);padding:56px 0}
 @media (max-width:640px){.extra{grid-template-columns:1fr}}
 
 /* three-column band: education & skills / how I work / quote */
-.band{display:grid;grid-template-columns:1fr 1fr .8fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .band>div{padding:44px 30px}
 .band>div:first-child{padding-left:0}
 .band>div+div{border-left:1px solid var(--line)}
@@ -240,30 +240,21 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;display:flex;justify
 
   <div class="band" id="about">
     <div>
-      <h2>Education &amp; skills</h2>
-      <div class="sub">Education</div>
+      <h2>Education</h2>
       <div class="edu"><b>B.Tech, Electronics &amp; Telecom</b><em>2023 – 2027</em><span>Vidyalankar Institute of Technology, Mumbai. CGPA 9.8. Minors in CS and Data Science.</span></div>
       <div class="edu"><b>HSC (Class XII), Science</b><em>2023</em><span>Jai Hind College, Churchgate</span></div>
-      <div class="edu"><b>Cloud Computing certificate</b><em>C-DAC</em><span>Plus MATLAB Onramp</span></div>
-      <div class="sub" style="margin-top:26px">Skills</div>
-      <div class="skills">
-        <span class="skill">Python</span><span class="skill">SQL</span><span class="skill">PyTorch</span><span class="skill">TensorFlow</span><span class="skill">scikit-learn</span><span class="skill">XGBoost</span><span class="skill">LightGBM</span><span class="skill">LLM agents</span><span class="skill">RAG</span><span class="skill">LangChain</span><span class="skill">OpenCV</span><span class="skill">YOLO</span><span class="skill">Spark</span><span class="skill">Kafka</span><span class="skill">Airflow</span><span class="skill">dbt</span><span class="skill">PostgreSQL</span><span class="skill">FastAPI</span><span class="skill">Docker</span><span class="skill">Google Cloud</span><span class="skill">Power BI</span><span class="skill">R</span>
-      </div>
+      <div class="edu"><b>SSC (Class X)</b><em>2021</em><span>St. Agnes' High School, Mumbai</span></div>
+      <div class="sub" style="margin-top:26px">Certifications</div>
+      <div class="edu"><b>Cloud Computing</b><em>C-DAC</em><span>Plus MATLAB Onramp (MathWorks)</span></div>
     </div>
     <div>
-      <h2>How I work</h2>
-      <ol class="steps">
-        <li><span class="n">01</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span><div><b>Find real data</b><span>River gauges, disaster reports, research APIs, live event streams. Not toy datasets.</span></div></li>
-        <li><span class="n">02</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/></svg></span><div><b>Clean it</b><span>Fix the broken dates, missing values and mislabelled rows first.</span></div></li>
-        <li><span class="n">03</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></span><div><b>Build the model</b><span>Start from a simple baseline, then earn every bit of complexity.</span></div></li>
-        <li><span class="n">04</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg></span><div><b>Test it honestly</b><span>Only on data the model never saw, against what really happened.</span></div></li>
-        <li><span class="n">05</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg></span><div><b>Ship it live</b><span>A link anyone can open, not a notebook on my laptop.</span></div></li>
-      </ol>
-    </div>
-    <div class="quote">
-      <span class="mark" aria-hidden="true">“</span>
-      <p>A model is only as good as the test you put it through.</p>
-      <div><div class="sign">Samiya</div><small class="cap">Let's build something that works <span class="spark">✦</span></small></div>
+      <h2>Skills</h2>
+      <div class="sub">Languages</div>
+      <div class="skills"><span class="skill">Python</span><span class="skill">SQL</span><span class="skill">R</span><span class="skill">C/C++</span><span class="skill">Java</span><span class="skill">JavaScript</span><span class="skill">MATLAB</span></div>
+      <div class="sub" style="margin-top:20px">Machine learning &amp; AI</div>
+      <div class="skills"><span class="skill">PyTorch</span><span class="skill">TensorFlow</span><span class="skill">scikit-learn</span><span class="skill">XGBoost</span><span class="skill">LightGBM</span><span class="skill">OpenCV</span><span class="skill">YOLO</span><span class="skill">LLM agents</span><span class="skill">RAG</span><span class="skill">LangChain</span><span class="skill">LangGraph</span></div>
+      <div class="sub" style="margin-top:20px">Data &amp; deployment</div>
+      <div class="skills"><span class="skill">Spark</span><span class="skill">Kafka</span><span class="skill">Airflow</span><span class="skill">dbt</span><span class="skill">PostgreSQL</span><span class="skill">FastAPI</span><span class="skill">Docker</span><span class="skill">GitHub Actions</span><span class="skill">Google Cloud</span><span class="skill">Power BI</span></div>
     </div>
   </div>
 
