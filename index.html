@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samiya Kazi</title>
+<meta name="description" content="Samiya Kazi, final-year B.Tech student in Mumbai building machine-learning and data systems: FloodWatch, LitScout and a real-time Zomato lakehouse.">
+<meta property="og:title" content="Samiya Kazi: machine learning and data projects">
+<meta property="og:description" content="Flood forecasting for Assam, a research agent that can't invent citations, and a real-time big data platform.">
+<meta property="og:image" content="https://samiyakazi23.github.io/img/floodwatch.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231D6B73'/%3E%3Cpath d='M5 19c4 0 4-4 8-4s4 4 8 4 4-4 6-4' stroke='%23fff' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --bg:#F1F4F3; --surface:#FFFFFF; --ink:#12282E; --muted:#50656B; --river:#1D6B73; --river-soft:#DCEBEA;
+  --line:#CFDADA; --amber:#B8741F; --amber-soft:#F6E7D2;
+  --display:"Bricolage Grotesque",system-ui,sans-serif; --text:"Source Serif 4",Georgia,serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D1D21; --surface:#13272C; --ink:#E3ECEB; --muted:#9BB0B3; --river:#6DBBC2; --river-soft:#183A3F;
+  --line:#24393E; --amber:#E2A458; --amber-soft:#3A2C18; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1D21; --surface:#13272C; --ink:#E3ECEB; --muted:#9BB0B3; --river:#6DBBC2; --river-soft:#183A3F;
+  --line:#24393E; --amber:#E2A458; --amber-soft:#3A2C18; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.62 var(--text);font-optical-sizing:auto}
+a{color:var(--river);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--river);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+@media (max-width:600px){.wrap{padding:0 16px}body{font-size:17px}}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.08;margin:0;letter-spacing:-.01em}
+
+/* top bar */
+.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.bar nav{display:flex;gap:22px;font:500 15px/1 var(--display)}
+.bar nav a{color:var(--ink);text-decoration:none}
+.bar nav a:hover{color:var(--river)}
+.theme{font:500 14px var(--display);background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:7px 12px;cursor:pointer}
+@media (max-width:600px){.bar nav{display:none}}
+
+/* hero */
+.hero{padding:64px 0 40px}
+.hero h1{font-size:clamp(56px,10.5vw,132px);font-weight:800;letter-spacing:-.035em;line-height:.92}
+.intro{max-width:36em;margin:28px 0 0;font-size:clamp(19px,2.1vw,22px);line-height:1.55}
+.intro b{font-weight:600}
+.seeking{margin:14px 0 0;color:var(--muted);max-width:36em}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 0}
+.links a{font:500 15px/1 var(--display);text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:12px 18px}
+.links a:hover{border-color:var(--river);color:var(--river)}
+.links a.primary{background:var(--river);border-color:var(--river);color:var(--surface)}
+:root[data-theme="dark"] .links a.primary{color:#0D1D21}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .links a.primary{color:#0D1D21}}
+
+/* river strip: the one live element */
+.river{margin:56px 0 0;border-top:2px solid var(--ink);padding:18px 0 0;display:grid;grid-template-columns:1fr 280px;gap:28px;align-items:end}
+.river p{margin:0;font-size:17px;max-width:40em}
+.river .what{font:600 15px/1.3 var(--display);margin-bottom:6px;color:var(--muted)}
+.river strong{font-family:var(--display);font-weight:700}
+.river .flag{display:inline-block;font:600 13px/1 var(--display);padding:5px 9px;border-radius:999px;background:var(--river-soft);color:var(--river);vertical-align:2px;margin-right:6px}
+.river .flag.alert{background:var(--amber-soft);color:var(--amber)}
+.river svg{width:100%;height:64px;display:block}
+.river .cap{font:400 13px/1.4 var(--display);color:var(--muted);margin-top:4px}
+@media (max-width:720px){.river{grid-template-columns:1fr}}
+.spark{fill:none;stroke:var(--river);stroke-width:2}
+.spark-area{fill:var(--river-soft)}
+.thr{stroke:var(--amber);stroke-dasharray:4 4;stroke-width:1.2}
+@media (prefers-reduced-motion:no-preference){.spark{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.6s ease-out .2s forwards}}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* sections */
+section{padding:72px 0 0}
+section>h2{font-size:clamp(30px,4vw,44px);margin-bottom:8px}
+.lede{color:var(--muted);margin:0 0 36px;max-width:38em}
+
+/* projects */
+.proj{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;padding:40px 0;border-top:1px solid var(--line);align-items:start}
+.proj:first-of-type{border-top:0}
+.shot{display:block;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);aspect-ratio:16/10}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.proj h3{font-size:clamp(28px,3.2vw,38px)}
+.proj .what{font:500 18px/1.35 var(--display);color:var(--muted);margin:8px 0 16px}
+.proj p{margin:0 0 14px}
+.proj .stack{font-size:15px;color:var(--muted)}
+.plinks{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font:600 16px/1.3 var(--display)}
+.note{font:400 14px/1.4 var(--display);color:var(--muted)}
+.proj.text{grid-template-columns:minmax(0,1fr)}
+.proj.text>div{max-width:40em}
+@media (max-width:820px){.proj{grid-template-columns:1fr;gap:20px}}
+
+/* experience, skills, education */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:220px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--line)}
+.row .when{font:500 15px/1.5 var(--display);color:var(--muted)}
+.row h3{font-size:21px;font-weight:700;line-height:1.3}
+.row p{margin:6px 0 0;max-width:40em}
+@media (max-width:640px){.row{grid-template-columns:1fr;gap:4px}}
+dl.skills{display:grid;grid-template-columns:220px 1fr;gap:0 28px;margin:0;border-top:1px solid var(--line)}
+dl.skills dt,dl.skills dd{padding:14px 0;border-bottom:1px solid var(--line);margin:0}
+dl.skills dt{font:600 16px/1.5 var(--display)}
+@media (max-width:640px){dl.skills{grid-template-columns:1fr}dl.skills dt{border-bottom:0;padding-bottom:0}}
+
+/* contact */
+.contact{padding:96px 0 40px}
+.contact h2{font-size:clamp(36px,6vw,72px);letter-spacing:-.03em;max-width:12em}
+.contact p{max-width:34em}
+footer{padding:40px 0 48px;color:var(--muted);font:400 14px/1.5 var(--display)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <nav aria-label="Sections"><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
+    <span></span>
+    <button class="theme" id="theme" type="button" aria-label="Switch colour theme">Dark</button>
+  </header>
+
+  <main>
+  <div class="hero">
+    <h1>Samiya<br>Kazi</h1>
+    <p class="intro">I'm a final-year B.Tech student in Mumbai (<b>CGPA 9.8</b>) who builds machine-learning and data systems, then checks them against what really happened: floods that hit, papers that exist, orders that arrived late.</p>
+    <p class="seeking">Looking for an AI/ML or data science internship in Mumbai.</p>
+    <div class="links">
+      <a class="primary" href="mailto:samiyakazi84@gmail.com">Email me</a>
+      <a href="cv.pdf">Download CV (PDF)</a>
+      <a href="https://github.com/samiyakazi23">GitHub</a>
+      <a href="https://linkedin.com/in/samiyakazi">LinkedIn</a>
+    </div>
+
+    <div class="river" id="river" hidden>
+      <div>
+        <div class="what" id="riverWhat">The Brahmaputra today</div>
+        <p id="riverText"></p>
+      </div>
+      <div>
+        <svg id="riverSpark" viewBox="0 0 280 64" preserveAspectRatio="none" role="img" aria-label="River flow at Guwahati over the last six weeks"></svg>
+        <div class="cap" id="riverCap"></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <p class="lede">Each one is live, so you can try it rather than take my word for it.</p>
+
+    <article class="proj">
+      <a class="shot" href="https://samiyakazi23.github.io/floodwatch/" aria-label="Open FloodWatch"><img src="img/floodwatch.jpg" alt="FloodWatch home page showing today's flood outlook for four Assam river stations" loading="lazy" width="1280" height="800"></a>
+      <div>
+        <h3>FloodWatch</h3>
+        <div class="what">Flood forecasts for Assam's rivers, tested on six monsoons</div>
+        <p>Predicts floods one to seven days ahead at 12 Brahmaputra-basin stations from river flow and rainfall, and runs every morning on its own. It was tested day by day on 2021 to 2026 and checked against the state disaster authority's district flood reports. Adding rainfall raised three-day early warnings in the 2022 floods from 11% to 42% of flood onsets, at a 0.9% false-alarm rate.</p>
+        <p>A U-Net maps floodwater from Sentinel-1 radar, which sees through monsoon cloud: 0.65 water IoU against 0.23 for the standard threshold method.</p>
+        <div class="stack">Python, LightGBM, PyTorch, Sentinel-1 SAR, GitHub Actions, D3.js</div>
+        <div class="plinks"><a href="https://samiyakazi23.github.io/floodwatch/">Open FloodWatch</a><a href="https://github.com/samiyakazi23/floodwatch">Code</a></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <a class="shot" href="https://litscout-9x39.onrender.com" aria-label="Open LitScout"><img src="img/litscout.jpg" alt="LitScout home page: literature reviews where every citation is checked" loading="lazy" width="1280" height="800"></a>
+      <div>
+        <h3>LitScout</h3>
+        <div class="what">A research agent that can't invent citations</div>
+        <p>Type a research question and it searches OpenAlex and arXiv, follows citation trails, reads the strongest papers and writes a review. Every cited sentence is checked against the paper it cites, and anything unsupported is cut. Tested against the reference lists of 7 published surveys, it found six times more of the experts' papers than keyword search.</p>
+        <p>Paper mode reads a GitHub repo and drafts a research paper about it, where every number has to match a line in the repo.</p>
+        <div class="stack">Python, LLM agents, Groq (gpt-oss, Qwen), OpenAlex and arXiv APIs, FastAPI, Docker</div>
+        <div class="plinks"><a href="https://litscout-9x39.onrender.com">Try it</a><a href="https://samiyakazi23.github.io/litscout/">Example reviews</a><a href="https://github.com/samiyakazi23/litscout">Code</a></div>
+        <div class="note">Runs on a free server: the first visit can take a minute to wake up.</div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <a class="shot" href="https://samiyakazi23.github.io/zomato-lakehouse/" aria-label="Open the Zomato lakehouse demo"><img src="img/zomato.jpg" alt="Zomato Analytics overview dashboard with order KPIs, a GMV forecast and GMV by city" loading="lazy" width="1440" height="900"></a>
+      <div>
+        <h3>Zomato real-time lakehouse</h3>
+        <div class="what">A streaming data platform for a simulated food-delivery marketplace</div>
+        <p>Kafka streams orders, rider pings and reviews into Spark Structured Streaming and a Delta Lake lakehouse. Airflow and dbt build the analytics, and an 11-tab website shows them. A late-delivery model (ROC-AUC 0.71) scores every live order within seconds, and an AI assistant answers questions by writing read-only SQL.</p>
+        <p>Built with Smrithi Pillai. It scales from a million orders on a laptop to a billion-order backfill.</p>
+        <div class="stack">Kafka, Spark, Delta Lake, Airflow, dbt, PostgreSQL, Grafana, Spark MLlib, FastAPI</div>
+        <div class="plinks"><a href="https://samiyakazi23.github.io/zomato-lakehouse/">Open the demo</a><a href="https://github.com/samiyakazi23/zomato-lakehouse">Code</a></div>
+      </div>
+    </article>
+
+    <article class="proj text">
+      <div>
+        <h3>AquaSense AI</h3>
+        <div class="what">Water-quality monitoring with microplastic detection</div>
+        <p>An ESP32 sensor node measures pH, TDS, turbidity and temperature, and a YOLO model classifies microplastic polymers from UV-lit camera images. A FastAPI backend and a portal with a live map serve public, government and research users. Team of four; research paper in preparation.</p>
+        <div class="stack">ESP32, YOLO, FastAPI, SQLite, Flask</div>
+      </div>
+    </article>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="rows">
+      <div class="row">
+        <div class="when">May to Jul 2026</div>
+        <div>
+          <h3>Data Analyst Intern, Vanguard Ventures, Mumbai</h3>
+          <p>Cleaned a real-estate project's walk-in tracker, defined 10 sales-funnel KPIs and built the sales team's dashboard. Caught that a "96% qualified" figure was really missing data: only 6.6% of leads had ever been tagged.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">Mar to Apr 2025</div>
+        <div><h3>Digital Marketing Intern, Reincarnation NGO</h3></div>
+      </div>
+      <div class="row">
+        <div class="when">Jan to Feb 2024</div>
+        <div><h3>Crowdfunding Intern, Muskurahat Foundation</h3><p>Raised ₹5,000.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt><dd>Python, SQL, R, C/C++, Java, JavaScript, MATLAB</dd>
+      <dt>Machine learning</dt><dd>scikit-learn, XGBoost, LightGBM, Random Forest, anomaly detection, time-series forecasting, walk-forward validation, feature engineering, Pandas, NumPy</dd>
+      <dt>Deep learning and vision</dt><dd>PyTorch, TensorFlow/Keras, CNNs, transfer learning, U-Net segmentation, YOLO, OpenCV, Tesseract OCR, satellite radar imagery</dd>
+      <dt>Generative AI</dt><dd>LLMs, AI agents, tool calling, RAG, LangChain, LangGraph, embeddings, FAISS, prompt engineering, LLM evaluation</dd>
+      <dt>Big data</dt><dd>Apache Spark (PySpark, Structured Streaming, MLlib), Kafka, Delta Lake, Airflow, dbt, PostgreSQL</dd>
+      <dt>Building and shipping</dt><dd>FastAPI, Flask, React, Streamlit, Docker, Git, GitHub Actions, Google Cloud, Excel, Power BI, D3.js</dd>
+    </dl>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="rows">
+      <div class="row"><div class="when">2023 to 2027</div><div><h3>B.Tech, Electronics and Telecommunication</h3><p>Vidyalankar Institute of Technology, Mumbai. CGPA 9.8. Minors in Computer Science and Next Generation Data Science.</p></div></div>
+      <div class="row"><div class="when">2023</div><div><h3>HSC (Class XII), Science</h3><p>Jai Hind College, Churchgate</p></div></div>
+      <div class="row"><div class="when">2021</div><div><h3>SSC (Class X)</h3><p>St. Agnes' High School, Mumbai</p></div></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Have an internship in AI, ML or data?</h2>
+    <p>I'd like to hear about it. Email me at <a href="mailto:samiyakazi84@gmail.com">samiyakazi84@gmail.com</a> or message me on <a href="https://linkedin.com/in/samiyakazi">LinkedIn</a>.</p>
+  </section>
+  </main>
+
+  <footer>Samiya Kazi, Mumbai. The river reading at the top comes from FloodWatch's forecast, refreshed every morning.</footer>
+</div>
+
+<script>
+// theme toggle: remembered per visitor when storage is available
+(function(){
+  const btn=document.getElementById("theme"), root=document.documentElement;
+  const sysDark=()=>matchMedia("(prefers-color-scheme: dark)").matches;
+  const cur=()=>root.dataset.theme||(sysDark()?"dark":"light");
+  const label=()=>{btn.textContent=cur()==="dark"?"Light":"Dark"};
+  try{const t=localStorage.getItem("theme");if(t)root.dataset.theme=t}catch(e){}
+  label();
+  btn.onclick=()=>{root.dataset.theme=cur()==="dark"?"light":"dark";try{localStorage.setItem("theme",root.dataset.theme)}catch(e){};label()};
+})();
+
+// live river reading from FloodWatch (same site); hidden if it can't load
+(async function(){
+  try{
+    const r=await fetch("/floodwatch/data/live.json",{cache:"no-store"});
+    if(!r.ok)return;
+    const d=await r.json(), st=d.stations||{};
+    const names=Object.keys(st); if(!names.length)return;
+    const s=st.Guwahati||st[names[0]], name=st.Guwahati?"Guwahati":names[0];
+    const hs=["1","2","3","5","7"];
+    const atRisk=names.filter(n=>{const x=st[n];return x.q>=x.thr||hs.some(h=>x.p&&x.cut&&x.p[h]>=x.cut[h])});
+    const pct=Math.round(100*s.q/s.thr);
+    const fmt=n=>n.toLocaleString("en-IN");
+    const issuedDate=new Date(d.issued+"T00:00:00");
+    const issued=issuedDate.toLocaleDateString("en-IN",{day:"numeric",month:"long"});
+    const ageDays=Math.floor((Date.now()-issuedDate)/864e5);
+    document.getElementById("riverWhat").textContent=ageDays<=1?"The Brahmaputra this morning":`The Brahmaputra on ${issued}, the latest reading`;
+    const flag=atRisk.length?`<span class="flag alert">${atRisk.length} station${atRisk.length>1?"s":""} at risk</span>`:`<span class="flag">No flood expected</span>`;
+    const outlook=atRisk.length
+      ?`FloodWatch expects flooding at ${atRisk.slice(0,3).join(", ")}${atRisk.length>3?" and others":""} within the next week.`
+      :`None of the ${names.length} stations FloodWatch reads is forecast to reach its warning level in the next seven days.`;
+    document.getElementById("riverText").innerHTML=`${flag}At ${name}, the river is carrying <strong>${fmt(s.q)} m³/s</strong>, ${pct}% of its warning level. ${outlook} <a href="/floodwatch/">See the forecast</a>`;
+    // sparkline of the last weeks of flow, with the warning level if it fits
+    const q=(s.history&&s.history.q)||[]; if(q.length>2){
+      const W=280,H=64,max=Math.max(...q,s.thr*0.15),min=0;
+      const x=i=>i*(W/(q.length-1)), y=v=>H-2-(v-min)/(max-min)*(H-6);
+      const pts=q.map((v,i)=>`${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+      const svg=document.getElementById("riverSpark");
+      let thr=""; if(s.thr<=max) thr=`<line class="thr" x1="0" x2="${W}" y1="${y(s.thr)}" y2="${y(s.thr)}"/>`;
+      svg.innerHTML=`<polygon class="spark-area" points="0,${H} ${pts} ${W},${H}"/>${thr}<polyline class="spark" points="${pts}"/>`;
+      const line=svg.querySelector(".spark"); line.style.setProperty("--len",line.getTotalLength());
+      document.getElementById("riverCap").textContent=`Flow at ${name}, last ${q.length} days. Forecast issued ${issued}.`;
+    }
+    document.getElementById("river").hidden=false;
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
