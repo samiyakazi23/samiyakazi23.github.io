@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Illustrated avatar of Samiya">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EDE7FF"/><stop offset="1" stop-color="#FCE7F3"/></linearGradient>
+    <linearGradient id="hood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8063FF"/><stop offset="1" stop-color="#5B3FE0"/></linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2140"/><stop offset="1" stop-color="#1A1428"/></linearGradient>
+    <linearGradient id="lap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9DCE8"/><stop offset="1" stop-color="#B8BCCD"/></linearGradient>
+    <clipPath id="circle"><circle cx="200" cy="200" r="200"/></clipPath>
+  </defs>
+  <g clip-path="url(#circle)">
+    <rect width="400" height="400" fill="url(#bg)"/>
+    <!-- floating shapes -->
+    <circle cx="70" cy="110" r="10" fill="#C4B5FD"/>
+    <circle cx="332" cy="92" r="6" fill="#F9A8D4"/>
+    <path d="M318 150l6 12 13 2-10 9 3 13-12-7-12 7 3-13-10-9 13-2z" fill="#FCD34D" opacity=".9"/>
+    <!-- hair behind -->
+    <path d="M118 175c-6-70 34-118 84-118s92 42 86 112c-2 30 6 60 16 92 10 30-6 60-40 66H140c-34-6-48-38-36-68 12-30 16-56 14-84z" fill="url(#hair)"/>
+    <!-- neck -->
+    <path d="M176 222h48v44c0 14-11 22-24 22s-24-8-24-22z" fill="#B97A55"/>
+    <path d="M176 246c14 10 34 10 48 0v-12h-48z" fill="#A86C49"/>
+    <!-- hoodie -->
+    <path d="M60 400c4-70 40-118 100-132 14 18 26 26 40 26s26-8 40-26c60 14 96 62 100 132z" fill="url(#hood)"/>
+    <path d="M146 268c10 26 30 40 54 40s44-14 54-40c-8-4-14-6-22-8-6 16-18 26-32 26s-26-10-32-26c-8 2-14 4-22 8z" fill="#4A2FC4" opacity=".55"/>
+    <path d="M183 300v40M217 300v40" stroke="#E9E3FF" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="183" cy="344" r="5" fill="#E9E3FF"/><circle cx="217" cy="344" r="5" fill="#E9E3FF"/>
+    <!-- ears -->
+    <ellipse cx="139" cy="172" rx="12" ry="17" fill="#C2845E"/>
+    <ellipse cx="261" cy="172" rx="12" ry="17" fill="#C2845E"/>
+    <circle cx="139" cy="190" r="4" fill="#FCD34D"/><circle cx="261" cy="190" r="4" fill="#FCD34D"/>
+    <!-- face -->
+    <path d="M140 160c0-46 26-78 60-78s60 32 60 78c0 44-26 80-60 80s-60-36-60-80z" fill="#C98B64"/>
+    <!-- cheeks -->
+    <ellipse cx="164" cy="192" rx="13" ry="8" fill="#E8889A" opacity=".45"/>
+    <ellipse cx="236" cy="192" rx="13" ry="8" fill="#E8889A" opacity=".45"/>
+    <!-- brows -->
+    <path d="M160 146c8-6 20-7 28-3M212 143c8-4 20-3 28 3" stroke="#2A2140" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <!-- eyes -->
+    <ellipse cx="175" cy="168" rx="8.5" ry="10" fill="#2A2140"/>
+    <ellipse cx="225" cy="168" rx="8.5" ry="10" fill="#2A2140"/>
+    <circle cx="178" cy="164" r="3" fill="#fff"/><circle cx="228" cy="164" r="3" fill="#fff"/>
+    <path d="M164 158c3-4 7-6 11-6M236 158c-3-4-7-6-11-6" stroke="#2A2140" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <!-- nose and smile -->
+    <path d="M200 176c-2 8-5 13-1 15" stroke="#A86C49" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <path d="M182 206c10 10 26 10 36 0" stroke="#7A3B3B" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M186 208c8 6 20 6 28 0" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none" opacity=".8"/>
+    <!-- hair front: middle part with soft side sweeps -->
+    <path d="M136 168c-4-58 26-96 66-96 42 0 70 38 64 96-8-30-24-52-46-62-6 14-20 24-38 28-16 4-32 14-46 34z" fill="url(#hair)"/>
+    <path d="M200 76c-4 10-6 22-4 34" stroke="#3B2F57" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M136 168c-6 40-2 76 10 104-14-4-22-18-24-40-2-26 4-48 14-64zM266 168c6 40 2 76-10 104 14-4 22-18 24-40 2-26-4-48-14-64z" fill="url(#hair)"/>
+    <!-- laptop -->
+    <g transform="translate(0 6)">
+      <path d="M96 330h208l-14 70H110z" fill="url(#lap)"/>
+      <rect x="96" y="326" width="208" height="8" rx="4" fill="#C9CDDB"/>
+      <!-- sticker: tiny line chart -->
+      <rect x="182" y="350" width="36" height="26" rx="6" fill="#7C5CFF"/>
+      <path d="M188 370l7-7 6 4 11-10" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </g>
+    <!-- hands on laptop -->
+    <ellipse cx="128" cy="336" rx="18" ry="11" fill="#C98B64"/>
+    <ellipse cx="272" cy="336" rx="18" ry="11" fill="#C98B64"/>
+  </g>
+</svg>
