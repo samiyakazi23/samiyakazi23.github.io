@@ -72,7 +72,7 @@ img{display:block;max-width:100%}
 .btn.fill:hover{background:var(--red-2)}
 @media (max-width:980px){
   .hero{grid-template-columns:1fr;min-height:auto;padding-top:24px;gap:8px}
-  .bigword{top:2%;font-size:22.5vw}
+  .bigword{top:2%;font-size:21vw}
   .avatar{order:-1;width:min(360px,80%);margin-top:12vw}
   .side{flex-direction:row;flex-wrap:wrap;gap:0 24px}.tagline{display:none}
   .stat{border-bottom:0;padding:10px 0}
@@ -172,9 +172,56 @@ section{border-top:1px solid var(--line);padding:56px 0}
 .rows svg{width:18px;height:18px;stroke:var(--red-2)}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 footer{border-top:1px solid var(--line);padding:24px 0 36px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13.5px}
+
+/* ---------- motion and polish ---------- */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--red),var(--red-2));z-index:60}
+.glow{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(closest-side,rgba(79,139,255,.13),transparent);transition:opacity .4s;opacity:0}
+.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);box-shadow:0 0 0 100vmax color-mix(in srgb,var(--bg) 82%,transparent);clip-path:inset(0 -100vmax)}
+.top nav a{position:relative}
+.top nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--red-2);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.top nav a:hover::after,.top nav a.on::after{transform:scaleX(1)}
+.top nav a.on{color:var(--ink)}
+.who h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.who h1 .ch{display:inline-block}
+.typed{display:inline-block;min-height:1.25em}
+.typed::after{content:"";display:inline-block;width:2px;height:1em;background:var(--red-2);margin-left:4px;vertical-align:-.12em}
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel);margin:0 calc(50% - 50vw);padding:18px 0}
+.marquee .track{display:flex;width:max-content;gap:0}
+.marquee span{font:400 clamp(26px,3.4vw,40px)/1 var(--display);letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;padding:0 28px;color:var(--ink)}
+.marquee span:nth-child(even){color:var(--red-2);padding:0}
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::before{content:"";position:absolute;inset:0;background:var(--red-2);transform:translateY(101%);transition:transform .35s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.btn:hover::before{transform:translateY(0)}
+.btn:hover{border-color:var(--red-2)}
+.ptitle{position:relative}
+.ptitle::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--red-2);transform:scaleX(0);transform-origin:left;transition:transform .5s ease}
+.proj:hover .ptitle::after{transform:scaleX(1)}
+.go{transition:transform .3s ease,border-color .3s,color .3s}
+.proj:hover .go{transform:rotate(-45deg)}
+@media (prefers-reduced-motion:no-preference){
+  .glow.on{opacity:1}
+  .avatar img{animation:bob 6s ease-in-out infinite}
+  .avatar::before{animation:breathe 5s ease-in-out infinite}
+  .who .hello,.who .role,.who p,.who .cta,.who .based,.side>*{opacity:0;transform:translateY(18px);animation:up .8s cubic-bezier(.2,.7,.2,1) forwards}
+  .who .hello{animation-delay:.15s}.who .role{animation-delay:.75s}.who p{animation-delay:.85s}.who .cta{animation-delay:.95s}.who .based{animation-delay:1.05s}
+  .side>*:nth-child(1){animation-delay:.9s}.side>*:nth-child(2){animation-delay:1s}.side>*:nth-child(3){animation-delay:1.1s}.side>*:nth-child(4){animation-delay:1.2s}
+  .who h1 .ch{transform:translateY(105%);animation:chup .8s cubic-bezier(.2,.8,.2,1) forwards}
+  .marquee .track{animation:slide 38s linear infinite}
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+}
+@keyframes bob{50%{transform:translateY(-10px)}}
+@keyframes breathe{50%{opacity:.7;transform:scale(1.05)}}
+@keyframes up{to{opacity:1;transform:none}}
+@keyframes chup{to{transform:none}}
+@keyframes slide{to{transform:translateX(-50%)}}
 </style>
 </head>
 <body>
+<div class="progress" id="progress"></div><div class="glow" id="glow" aria-hidden="true"></div>
 <div class="wrap">
   <header class="top">
     <div class="cap">AI/ML Engineer<br><span class="red">Data Scientist</span></div>
@@ -188,7 +235,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;display:flex;justify
     <div class="who">
       <div class="hello">Hello, I'm</div>
       <h1>Samiya<br>Kazi</h1>
-      <div class="role">AI/ML Engineer &amp;<br>Data Scientist</div>
+      <div class="role"><span class="typed" id="typed">AI/ML Engineer &amp; Data Scientist</span></div>
       <p>I build machine-learning models, AI agents and data pipelines, and test them on real data: actual floods, real research papers, live order streams.</p>
       <div class="cta"><a class="btn fill" href="#projects">See my work</a><a class="btn" href="cv.pdf">Download CV</a></div>
       <div class="based cap"><i aria-hidden="true"></i>Based in Mumbai, India</div>
@@ -196,11 +243,13 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;display:flex;justify
     <div class="avatar"><img src="img/avatar.png" alt="Pixel-art avatar of Samiya coding at her desk, with a black cat beside her" width="900" height="900"></div>
     <div class="side">
       <div class="tagline"><span class="ring" aria-hidden="true">✦</span>Turning messy data into models you can check.</div>
-      <div class="stat"><b>9.8</b><span>CGPA<br>B.Tech EXTC</span></div>
-      <div class="stat"><b>4</b><span>ML and data<br>projects</span></div>
-      <div class="stat"><b>3</b><span>Live demos<br>online</span></div>
+      <div class="stat"><b data-count="9.8">9.8</b><span>CGPA<br>B.Tech EXTC</span></div>
+      <div class="stat"><b data-count="4">4</b><span>ML and data<br>projects</span></div>
+      <div class="stat"><b data-count="3">3</b><span>Live demos<br>online</span></div>
     </div>
   </div>
+
+  <div class="marquee" aria-hidden="true"><div class="track"><span>Machine learning</span><span>✦</span><span>AI agents</span><span>✦</span><span>Data engineering</span><span>✦</span><span>Computer vision</span><span>✦</span><span>Time-series forecasting</span><span>✦</span><span>LLMs</span><span>✦</span><span>Big data</span><span>✦</span><span>Machine learning</span><span>✦</span><span>AI agents</span><span>✦</span><span>Data engineering</span><span>✦</span><span>Computer vision</span><span>✦</span><span>Time-series forecasting</span><span>✦</span><span>LLMs</span><span>✦</span><span>Big data</span><span>✦</span></div></div>
 
   <section id="projects">
     <div class="shead"><h2>Selected projects</h2><span class="rule"></span><a class="cap" href="https://github.com/samiyakazi23">View all on GitHub &nbsp;⟶</a></div>
@@ -289,6 +338,46 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;display:flex;justify
 </div>
 
 <script>
+// ---------- motion ----------
+(function(){
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // name: letters rise one by one
+  const h1=document.querySelector(".who h1");
+  if(h1&&!reduce){
+    const lines=h1.innerHTML.split(/<br\s*\/?>/i); let k=0;
+    h1.setAttribute("aria-label",h1.textContent.trim());
+    h1.innerHTML=lines.map(l=>`<span class="ln" aria-hidden="true">${[...l.trim()].map(c=>`<span class="ch" style="animation-delay:${.25+(k++)*.045}s">${c===" "?"&nbsp;":c}</span>`).join("")}</span>`).join("");
+  }
+  // role: typed, cycling
+  const el=document.getElementById("typed"), words=["AI/ML Engineer","Data Scientist","AI Agent Builder","Data Engineer"];
+  if(el&&!reduce){let w=0,i=0,del=false;el.textContent="";
+    const tick=()=>{const t=words[w];el.textContent=t.slice(0,i);
+      if(!del&&i<t.length){i++;setTimeout(tick,70)}else if(!del){del=true;setTimeout(tick,1600)}
+      else if(i>0){i--;setTimeout(tick,35)}else{del=false;w=(w+1)%words.length;setTimeout(tick,300)}};
+    setTimeout(tick,900);}
+  // stats count up
+  document.querySelectorAll("[data-count]").forEach(b=>{if(reduce)return;const end=parseFloat(b.dataset.count),dec=(b.dataset.count.split(".")[1]||"").length,t0=performance.now()+900;
+    const step=t=>{const p=Math.min(Math.max((t-t0)/1200,0),1),e=1-Math.pow(1-p,3);b.textContent=(end*e).toFixed(dec);if(p<1)requestAnimationFrame(step)};b.textContent=(0).toFixed(dec);requestAnimationFrame(step)});
+  // scroll reveal
+  const targets=document.querySelectorAll(".shead,.proj,.box,.band>div,.job,.contact>div,.rows a");
+  if(!reduce&&"IntersectionObserver" in window){
+    targets.forEach((t,i)=>{t.classList.add("reveal");if(t.classList.contains("proj"))t.style.transitionDelay=(([...t.parentNode.children].indexOf(t))*.12)+"s"});
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+    targets.forEach(t=>io.observe(t));
+  }
+  // scroll progress and active nav link
+  const bar=document.getElementById("progress"), links=[...document.querySelectorAll(".top nav a")];
+  const secs=links.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  const onScroll=()=>{const h=document.documentElement;bar.style.transform=`scaleX(${h.scrollTop/(h.scrollHeight-h.clientHeight||1)})`;
+    let cur=null;secs.forEach(sec=>{if(sec.getBoundingClientRect().top<innerHeight*.4)cur=sec});links.forEach(a=>a.classList.toggle("on",cur&&a.getAttribute("href")==="#"+cur.id))};
+  addEventListener("scroll",onScroll,{passive:true});onScroll();
+  // cursor glow (mouse only)
+  const g=document.getElementById("glow");
+  if(!reduce&&matchMedia("(pointer:fine)").matches){let x=innerWidth/2,y=innerHeight/3,tx=x,ty=y;
+    addEventListener("pointermove",e=>{tx=e.clientX;ty=e.clientY;g.classList.add("on")},{passive:true});
+    const loop=()=>{x+=(tx-x)*.12;y+=(ty-y)*.12;g.style.transform=`translate(${x}px,${y}px)`;requestAnimationFrame(loop)};loop();}
+})();
+
 (async function(){
   try{
     const r=await fetch("/floodwatch/data/live.json",{cache:"no-store"}); if(!r.ok)return;
